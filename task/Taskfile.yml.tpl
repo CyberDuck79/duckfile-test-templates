@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------
 #  Taskfile for CI/automation
-#  Go version: {{ .GO_VERSION | default "1.22" }}
-#  Platform  : {{ .PLATFORM }}
+#  Go version: [[ .GO_VERSION | default "1.22" ]]
+#  Platform  : [[ .PLATFORM ]]
 # ------------------------------------------------------------------
 version: '3'
 
