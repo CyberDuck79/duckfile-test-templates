@@ -12,10 +12,9 @@ vars:
 tasks:
 
   test: ## Run unit tests
-    env:
-      EMOJI: "🧪"
+    dir: {{.USER_WORKING_DIR}}
     cmds:
-      - echo "{{ .EMOJI }} go test ./..."
+      - echo "🧪 go test ./..."
       - go test -race ./..."
 
   default:
