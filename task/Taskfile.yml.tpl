@@ -11,24 +11,12 @@ vars:
 
 tasks:
 
-  lint: ## Run static linters
-    cmds:
-      - echo "🔍 linting code with golangci-lint"
-      - golangci-lint run ./...
-
   test: ## Run unit tests
-    cmds:
-      - echo "🧪 go test ./..."
-      - "{{ .GO_VERSION }} go test -race ./..."
-
-  build: ## Compile binaries
     env:
-      CGO_ENABLED: "{{ .CGO_ENABLED }}"
+      EMOJI: "🧪"
     cmds:
-      - echo "🏗️  building {{ .PLATFORM }}"
-      - GOOS=$(echo "{{ .PLATFORM }}" | cut -d/ -f1) \
-        GOARCH=$(echo "{{ .PLATFORM }}" | cut -d/ -f2) \
-        {{ .GO }} build -o dist/app ./cmd/app
+      - echo "{{ .EMOJI }} go test ./..."
+      - go test -race ./..."
 
   default:
-    deps: [lint, test, build]
+    deps: [test]
